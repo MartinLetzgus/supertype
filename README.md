@@ -1,3 +1,3 @@
 # supertype
 
-pip install supertype-MartinLetzgus
+pip install supertype-python
