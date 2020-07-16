@@ -1,6 +1,6 @@
 ## Overview
 
-Supertype-python is a package countaining a single function, supertype(). This one works like type but gives more information, which could be useful in a development phase.
+Supertype-python is a package containing a single function, supertype(). This one works like type but gives more information, which could be useful in a development phase.
 
 ## Installation
 
@@ -38,6 +38,9 @@ tuple of 3 elements containing :
     -dict of 3 elements
 ```
 
+This also works with objects from other librairies and even with you homemade objects !
+
+
 ## What should be added soon
 
 -correction of language approximations\
@@ -47,6 +50,12 @@ tuple of 3 elements containing :
 -...
 
 If you have any idea or suggestion feel free to contact me on my email.
+
+## Contributors
+
+Martin Letzgus\
+Antoine Thiol\
+Quentin Petit
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
