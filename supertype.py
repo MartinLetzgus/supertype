@@ -1,3 +1,24 @@
+# -*- coding: utf-8 -*-
+
+  
+
+#Fonction qui p
+def generate_string(strType, obj, last = False, cont = []):
+    output = strType
+    output += " of " 
+    output += str(len(obj))
+    if(len(obj) < 2):
+        output += " element "
+    else:
+        output += " elements "
+    output += "containing"
+    if last:
+        output += " " + str(set(cont))
+    else:
+        output += " : "
+    return output
+
+
 def supertype(obj,indent=0):
     if type(obj)==list or type(obj)==tuple:
         cont=[]
@@ -6,9 +27,9 @@ def supertype(obj,indent=0):
             i+=1
         if i<len(obj):
             if type(obj)==list:
-                cont = ('list of '+str(len(obj))+' elements containing :')
+                cont = generate_parent_string("list", obj)
             else:
-                cont = ('tuple of '+str(len(obj))+' elements containing :')
+                cont = generate_parent_string("tuple", obj)
             for i in obj:
                 cont+='\n'+'    '*(indent+1)+'-'+str(supertype(i,indent+1))
         else:
@@ -16,9 +37,9 @@ def supertype(obj,indent=0):
                 cont.append(supertype(i,indent+1))
             c = set(cont)
             if type(obj)==list:
-                cont = 'list of '+str(len(obj))+' elements containing '+str(c)
+                cont = generate_parent_string("list", obj, True, cont)
             else:
-                cont = 'tuple of '+str(len(obj))+' elements containing '+str(c)                
+                cont = generate_parent_string("tuple", obj, True, cont)               
         if(indent==0):
             print(cont)
         else:
@@ -41,5 +62,3 @@ def supertype(obj,indent=0):
         else:
             return(cont)
         #The [8:-2] allows us to make "<class 'str'>" into "str"
-    
-    
