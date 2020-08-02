@@ -18,20 +18,22 @@ b = 'bbb'
 c = 5
 d = {"x": "X", "y": "Y", "z": "Z"}
 e = [a,b]
-f = (e,c,d)
+f = array('l', [1, 2, 3, 4, 5])
+g = (f,e,c,d)
 ```
 Now, you can import supertype() and just ask the supertype of the object f :
 ```python
 from supertype import supertype
 
-supertype(f)
+supertype(g)
 ```
 
 This returns :
 
 ```
-tuple of 3 elements containing :
-    -list of 2 elements containing :
+tuple of 4 elements containing : 
+    -array of 5 elements containing {'int'}
+    -list of 2 elements containing : 
         -list of 3 elements containing {'int'}
         -str of 3 elements
     -int
