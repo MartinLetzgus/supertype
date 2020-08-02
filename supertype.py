@@ -1,10 +1,23 @@
 # -*- coding: utf-8 -*-
 
-  
+#Need to import this library to support array type
+from array import array
 
-#Fonction qui p
-def generate_string(strType, obj, last = False, cont = []):
-    output = strType
+# Returns the name of the object if it is supported.
+# Returns an empty string else
+def supported_object(obj):
+    if type(obj) not in (tuple, list, array):
+        return ""
+    if(type(obj) == tuple):
+        return "tuple"
+    if(type(obj) == list):
+        return "list"
+    if(type(obj) == array):
+        return "array"
+
+#Function that generates the string if the object is supported
+def generate_string(obj, cont):
+    output = supported_object(obj)
     output += " of " 
     output += str(len(obj))
     if(len(obj) < 2):
@@ -12,7 +25,7 @@ def generate_string(strType, obj, last = False, cont = []):
     else:
         output += " elements "
     output += "containing"
-    if last:
+    if cont != []:
         output += " " + str(set(cont))
     else:
         output += " : "
@@ -20,26 +33,18 @@ def generate_string(strType, obj, last = False, cont = []):
 
 
 def supertype(obj,indent=0):
-    if type(obj)==list or type(obj)==tuple:
+    if supported_object(obj) != "":
         cont=[]
         i=0
-        while (i<len(obj)) and (type(obj[i])!=tuple) and (type(obj[i])!=list):
+        while (i<len(obj)) and supported_object(obj[i]) == "":
             i+=1
-        if i<len(obj):
-            if type(obj)==list:
-                cont = generate_parent_string("list", obj)
-            else:
-                cont = generate_parent_string("tuple", obj)
-            for i in obj:
-                cont+='\n'+'    '*(indent+1)+'-'+str(supertype(i,indent+1))
-        else:
-            for i in obj:
-                cont.append(supertype(i,indent+1))
-            c = set(cont)
-            if type(obj)==list:
-                cont = generate_parent_string("list", obj, True, cont)
-            else:
-                cont = generate_parent_string("tuple", obj, True, cont)               
+        if i >= len(obj):
+            for j in obj:
+                cont.append(supertype(j,indent+1))
+        cont = generate_string(obj, cont)
+        if i< len(obj):   
+            for j in obj:
+                cont+='\n'+'    '*(indent+1)+'-'+str(supertype(j,indent+1))            
         if(indent==0):
             print(cont)
         else:
