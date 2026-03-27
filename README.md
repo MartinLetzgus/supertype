@@ -21,25 +21,27 @@ c = 5
 d = {"x": "X", "y": "Y", "z": "Z"}
 e = [a,b]
 f = array('l', [1, 2, 3, 4, 5])
-g = (f,e,c,d)
+g = {10, 20, 30}
+h = (f,e,c,d,g)
 ```
-Now, you can import supertype() and inspect the object `g`:
+Now, you can import supertype() and inspect the object `h` (note: set iteration order may vary):
 ```python
 from supertype import supertype
 
-print(supertype(g))
+print(supertype(h))
 ```
 
 This returns:
 
 ```
-tuple with 4 elements:
+tuple with 5 elements:
     - array with 5 elements containing int
     - list with 2 elements:
       - list with 3 elements containing int
       - str with length 3
     - int
     - dict with 3 items mapping str to str
+    - set with 3 elements containing int
 ```
 
 This also works with objects from other librairies and even with you homemade objects !

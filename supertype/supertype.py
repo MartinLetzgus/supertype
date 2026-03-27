@@ -2,7 +2,7 @@
 
 from array import array
 
-SUPPORTED_CONTAINERS = (tuple, list, array)
+SUPPORTED_CONTAINERS = (tuple, list, array, set, frozenset)
 
 
 def _is_supported_container(obj):
