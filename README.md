@@ -1,5 +1,7 @@
 ## Overview
 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/supertype-python?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/supertype-python)
+
 Supertype-python is a package containing a single function, supertype(). This one works like type but gives more information, which could be useful in a development phase.
 
 ## Installation
@@ -21,23 +23,23 @@ e = [a,b]
 f = array('l', [1, 2, 3, 4, 5])
 g = (f,e,c,d)
 ```
-Now, you can import supertype() and just ask the supertype of the object f :
+Now, you can import supertype() and inspect the object `g`:
 ```python
 from supertype import supertype
 
-supertype(g)
+print(supertype(g))
 ```
 
-This returns :
+This returns:
 
 ```
-tuple of 4 elements containing : 
-    -array of 5 elements containing {'int'}
-    -list of 2 elements containing : 
-        -list of 3 elements containing {'int'}
-        -str of 3 elements
-    -int
-    -dict of 3 elements
+tuple with 4 elements:
+    - array with 5 elements containing int
+    - list with 2 elements:
+      - list with 3 elements containing int
+      - str with length 3
+    - int
+    - dict with 3 items mapping str to str
 ```
 
 This also works with objects from other librairies and even with you homemade objects !
