@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.2.0 (unreleased)
+## 2.0.0 (2026-11-11)
+
+This release changes the output format (see "Changed" below). If you parse or compare
+`supertype()` output, check the new format before upgrading, or pin `supertype-python<2`.
 
 ### Fixed
 - Self-referencing lists, tuples, sets and dicts no longer raise `RecursionError`; they are
