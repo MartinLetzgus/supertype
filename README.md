@@ -130,6 +130,7 @@ Ideas, bug reports and pull requests are welcome on the
 - Martin Letzgus
 - Antoine Thiol
 - Quentin Petit
+- Claude (Anthropic)
 
 ## License
 
