@@ -19,7 +19,7 @@ can paste into your code.
 pip install supertype-python
 ```
 
-Requires Python 3.8 or newer. The package has no dependencies.
+Requires Python 3.9 or newer. The package has no dependencies.
 
 ## Quick start
 

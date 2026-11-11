@@ -18,7 +18,7 @@
 - Tree output uses a consistent four-space indent at every level.
 - `bytes` and `bytearray` report a length, like `str`.
 - Objects with a `dtype` (NumPy, pandas, PyTorch) also show it: `ndarray with shape (3, 4) and dtype float64`.
-- Python 3.8 or newer is now required.
+- Python 3.9 or newer is now required.
 
 ### Added
 - Dictionaries that hold containers are shown as a tree with one bullet per key
@@ -32,4 +32,4 @@
   containers of the same kind.
 - `max_depth` argument to collapse deeply nested structures.
 - `pyproject.toml` packaging metadata, `__version__`, type hints and a `py.typed` marker.
-- Test suite (including README doctests) and a GitHub Actions workflow for Python 3.8 to 3.13.
+- Test suite (including README doctests) and a GitHub Actions workflow for Python 3.9 to 3.14.
