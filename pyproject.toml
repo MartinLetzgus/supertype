@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supertype-python"
+dynamic = ["version"]
+description = "Like type(), but recursively describes what an object contains."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [
+    { name = "Martin Letzgus" },
+    { name = "Antoine Thiol" },
+    { name = "Quentin Petit" },
+]
+keywords = ["type", "introspection", "debugging", "inspect", "nested"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Debuggers",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/MartinLetzgus/supertype"
+Issues = "https://github.com/MartinLetzgus/supertype/issues"
+
+[tool.setuptools]
+packages = ["supertype"]
+
+[tool.setuptools.dynamic]
+version = { attr = "supertype.__version__" }
+
+[tool.setuptools.package-data]
+supertype = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "supertype", "README.md"]
+addopts = "--doctest-modules --doctest-glob=README.md"
